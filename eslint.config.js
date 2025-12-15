@@ -5,7 +5,6 @@ import tsPlugin  from "@typescript-eslint/eslint-plugin";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooks from "eslint-plugin-react-hooks";
-import parser from "@typescript-eslint/parser";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
@@ -25,7 +24,7 @@ export default defineConfig([
   ...tseslint.configs.recommendedTypeChecked,
   pluginReactConfig,
   {
-    ignores: ["eslint.config.js", "rsbuild.config.ts", "craco.config.js", "src/setupProxy.js"],
+    ignores: ["eslint.config.js", "rsbuild.config.ts", "node_modules", "**/*.d.ts"],
   },
   {
     plugins: { "simple-import-sort": simpleImportSort, "react-hooks": reactHooks, '@typescript-eslint': tsPlugin },
