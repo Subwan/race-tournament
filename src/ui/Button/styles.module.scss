@@ -1,0 +1,16 @@
+@use '../../assets/colors' as *;
+
+.button {
+  padding-inline: 0;
+  padding-block: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px solid $border;
+  background-color: $elementsBackground;
+  color: $primaryText;
+
+  &:hover {
+    background-color: $hover;
+  }
+}
