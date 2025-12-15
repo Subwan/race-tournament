@@ -1,0 +1,30 @@
+@use '../../assets/colors' as *;
+@use '../../assets/vars' as *;
+
+.menu {
+  width: 100%;
+  height: $menuHeight;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  border-bottom: 2px solid $border;
+  box-sizing: border-box;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border-right: 1px solid $border;
+    box-sizing: border-box;
+    user-select: none;
+
+    &:hover {
+      background-color: $hover;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}

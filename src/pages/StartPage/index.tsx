@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TournamentApi } from 'localStorageApi';
-import type { Tournament } from '@types';
 import { Button } from '@ui';
 
 import { ROUTES } from '../../constants/routes';
@@ -10,24 +9,19 @@ import styles from './styles.module.scss';
 
 export const StartPage: React.FC = () => {
   const navigate = useNavigate();
-  const [tournament, setTournament] = useState<Tournament | null>(TournamentApi.get())
-
-  const updateTournament = (tournament: Tournament| null) => {
-    TournamentApi.set(tournament);
-    setTournament(tournament);
-  }
+  const tournament = TournamentApi.get();
 
   const onStartClick = () => {
-    updateTournament(null);
+    TournamentApi.set(null);
 
-    void navigate(ROUTES.STAGES)
+    void navigate(ROUTES.TOURNAMENT)
   }
 
   return (
     <main className={styles.block}>
       <div>
         <Button onClick={onStartClick}>Начать новый турнир</Button>
-        {tournament && (<Button onClick={() => navigate(ROUTES.RESULTS)}>Продолжить</Button>)}
+        {tournament && (<Button onClick={() => navigate(ROUTES.TOURNAMENT)}>Продолжить</Button>)}
       </div>
     </main>
   )

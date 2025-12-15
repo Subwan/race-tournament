@@ -9,6 +9,7 @@
   border: 1px solid $border;
   background-color: $elementsBackground;
   color: $primaryText;
+  box-sizing: border-box;
 
   &:hover {
     background-color: $hover;

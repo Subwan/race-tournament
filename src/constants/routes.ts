@@ -1,4 +1,5 @@
 export const ROUTES = {
-  STAGES: '/stages',
-  RESULTS: '/results',
+  TOURNAMENT: '/tournament',
+  STAGES: '/tournament/stages',
+  RESULTS: '/tournament/results',
 };
