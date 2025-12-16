@@ -1,6 +1,8 @@
 export type Racer = {
   name: string;
-  stages: string[];
+  times: string[];
 };
 
-export type Tournament = Racer[];
+export type Stage = Racer[];
+
+export type Tournament = Stage[];

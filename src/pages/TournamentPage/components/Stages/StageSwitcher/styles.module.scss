@@ -1,0 +1,26 @@
+@use '../../../../../assets/colors' as *;
+
+.list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    background-color: $elementsBackground;
+    border: 2px solid $border;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover;
+    }
+  }
+}

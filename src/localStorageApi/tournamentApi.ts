@@ -4,7 +4,7 @@ const KEY = 'tournament';
 
 // TODO доработать проверку после развития типов
 const isTournament = (value: unknown): value is Tournament =>
-  Array.isArray(value) && value.every(racer => typeof racer === 'object' && 'name' in racer);
+  Array.isArray(value) && value.every(stage => Array.isArray(stage) && stage.every(racer =>  typeof racer === 'object' && 'name' in racer));
 
 export const TournamentApi = {
   get: (): Tournament | null => {
