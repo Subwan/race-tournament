@@ -1,4 +1,5 @@
 @use '../../../../../assets/colors' as *;
+@use '../../../../../assets/mixins' as *;
 
 .list {
   display: flex;
@@ -9,18 +10,6 @@
   padding: 0;
 
   li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    aspect-ratio: 1 / 1;
-    background-color: $elementsBackground;
-    border: 2px solid $border;
-    box-sizing: border-box;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $hover;
-    }
+    @include sideMenuBlock;
   }
 }

@@ -3,25 +3,27 @@ import { TournamentApi } from 'localStorageApi';
 import type { Stage, Tournament } from '@types';
 
 export const useTournament = () => {
-    const [tournament, setTournament] = useState<Tournament | null>(TournamentApi.get());
+  const [tournament, setTournament] = useState<Tournament | null>(TournamentApi.get());
 
-    const setFullTournament = useCallback((newTournament: Tournament | null) => {
-      TournamentApi.set(newTournament);
-      setTournament(newTournament);
-    }, []);
+  const setFullTournament = useCallback((newTournament: Tournament | null) => {
+    TournamentApi.set(newTournament);
+    setTournament(newTournament);
+  }, []);
 
-    const addToTournament = useCallback((newStage: Stage) => {
-      setTournament((oldValue) => {
-        const newValue = [
-          ...oldValue ?? [],
-          newStage,
-        ];
+  const addToTournament = useCallback((newStage: Stage) => {
+    setTournament((oldValue) => {
+      const newid = oldValue && Object.keys(oldValue).length || 0;
 
-        TournamentApi.set(newValue);
+      const newValue = {
+        ...oldValue,
+        [newid + 1]: newStage,
+      };
 
-        return newValue;
-      })
-    }, []);
+      TournamentApi.set(newValue);
 
-    return { tournament, setTournament: setFullTournament, addToTournament };
+      return newValue;
+    })
+  }, []);
+
+  return { tournament, setTournament: setFullTournament, addToTournament };
 };

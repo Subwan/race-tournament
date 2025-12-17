@@ -6,6 +6,7 @@ import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooks from "eslint-plugin-react-hooks";
 import { defineConfig } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   {
@@ -23,6 +24,7 @@ export default defineConfig([
   pluginJs.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   pluginReactConfig,
+  eslintConfigPrettier,
   {
     ignores: ["eslint.config.js", "rsbuild.config.ts", "node_modules", "**/*.d.ts"],
   },

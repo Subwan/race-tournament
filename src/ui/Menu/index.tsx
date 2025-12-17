@@ -4,6 +4,7 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 export type MenuProps = {
+  value: string;
   options: {
     label: ReactNode;
     value: string;
@@ -12,9 +13,15 @@ export type MenuProps = {
   className?: string;
 }
 
-export const Menu: FC<MenuProps> = ({ className, options, onOptionClick }) => {
+export const Menu: FC<MenuProps> = ({ value, className, options, onOptionClick }) => {
   const OPTIONS_LIST = options.map(option => (
-    <li key={option.value} onClick={() => onOptionClick(option.value)}>{option.label}</li>
+    <li
+      key={option.value}
+      className={cn({ [styles.active]: value === option.value })}
+      onClick={() => onOptionClick(option.value)}
+    >
+      {option.label}
+    </li>
   ));
 
   return <menu className={cn(styles.menu, className)}>{OPTIONS_LIST}</menu>

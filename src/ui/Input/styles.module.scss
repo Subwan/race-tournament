@@ -1,0 +1,14 @@
+@use '../../assets/colors' as *;
+
+.input {
+  width: 200px;
+  font-size: 20px;
+  line-height: 26px;
+  background-color: $elementsBackground;
+  color: $primaryText;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}

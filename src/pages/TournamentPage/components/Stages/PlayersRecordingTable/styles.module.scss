@@ -1,0 +1,7 @@
+@use '../../../../../assets/mixins' as *;
+
+.addButton {
+  @include sideMenuBlock;
+
+  margin-top: 20px;
+}

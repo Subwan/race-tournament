@@ -1,5 +1,6 @@
 @use '../../assets/colors' as *;
 @use '../../assets/vars' as *;
+@use '../../assets/mixins' as *;
 
 .menu {
   width: 100%;
@@ -26,6 +27,10 @@
 
     &:last-child {
       border: 0;
+    }
+
+    &.active {
+      @include active;
     }
   }
 }

@@ -1,0 +1,27 @@
+@use './colors' as *;
+
+@mixin active {
+  background-color: $active;
+  color: $darkText;
+}
+
+@mixin sideMenuBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  background-color: $elementsBackground;
+  border: 2px solid $border;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover;
+  }
+
+  &.active {
+    @include active;
+  }
+}
