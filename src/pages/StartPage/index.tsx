@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 import { TournamentApi } from 'localStorageApi';
 import { Button } from '@ui';
 
@@ -14,14 +14,14 @@ export const StartPage: React.FC = () => {
   const onStartClick = () => {
     TournamentApi.set(null);
 
-    void navigate(ROUTES.TOURNAMENT)
+    void navigate(generatePath(ROUTES.STAGES))
   }
 
   return (
     <main className={styles.block}>
-      <div>
-        <Button onClick={onStartClick}>Начать новый турнир</Button>
-        {tournament && (<Button onClick={() => navigate(ROUTES.TOURNAMENT)}>Продолжить</Button>)}
+      <div className={styles.container}>
+        <Button onClick={onStartClick}>New tournament</Button>
+        {tournament && (<Button onClick={() => navigate(ROUTES.RESULTS)}>Continue</Button>)}
       </div>
     </main>
   )

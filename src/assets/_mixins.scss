@@ -13,12 +13,16 @@
   aspect-ratio: 1 / 1;
   background-color: $elementsBackground;
   border: 2px solid $border;
-  box-sizing: border-box;
+  border-bottom: 0;
   user-select: none;
   cursor: pointer;
 
   &:hover {
     background-color: $hover;
+  }
+
+  &:last-child {
+    border-bottom: 2px solid $border;
   }
 
   &.active {

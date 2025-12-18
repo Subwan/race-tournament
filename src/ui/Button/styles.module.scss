@@ -10,6 +10,7 @@
   background-color: $elementsBackground;
   color: $primaryText;
   box-sizing: border-box;
+  cursor: pointer;
 
   &:hover {
     background-color: $hover;

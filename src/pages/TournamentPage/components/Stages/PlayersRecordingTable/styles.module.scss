@@ -1,7 +1,62 @@
 @use '../../../../../assets/mixins' as *;
+@use '../../../../../assets/colors' as *;
 
 .addButton {
   @include sideMenuBlock;
 
   margin-top: 20px;
+}
+
+.deleteButton {
+  border: 0;
+  color: $danger;
+  padding: 14px 16px;
+}
+
+.buttonCell {
+  position: relative;
+  padding: 0 !important;
+}
+
+.confirm {
+  position: absolute;
+  top: -2;
+  left: calc(100% + 2px);
+  font-size: 16px;
+  height: 50px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  background-color: $elementsBackground;
+  border: 2px solid $border;
+  border-left: 0;
+
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+    margin-left: 20px;
+
+    .confirmButton {
+      height: 80%;
+      padding: 0 12px;
+      border: 0;
+    }
+  }
+}
+
+.button {
+  @include sideMenuBlock;
+  padding: 0;
+}
+
+.green {
+    color: $success;
+}
+
+.red {
+  color: $danger;
 }

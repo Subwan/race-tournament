@@ -8,7 +8,10 @@ export type TableProps = {
   head: string[];
   body: {
     label: ReactNode;
-    cells: ReactNode[];
+    cells: {
+      node: ReactNode;
+      className?: string;
+    }[];
   }[],
 };
 
@@ -16,7 +19,7 @@ const renderHead = (head: TableProps['head']) => head.map(((element, index) => <
 
 const renderBody = (body: TableProps['body']) => body.map((element, index) => {
   const renderCells = () => element.cells.map((cell, cellIndex) => (
-    <td key={cellIndex}>{cell}</td>
+    <td key={cellIndex} className={cell.className}>{cell.node}</td>
   ))
 
   return (

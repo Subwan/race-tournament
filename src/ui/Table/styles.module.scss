@@ -3,6 +3,7 @@
 .table {
   background-color: $elementsBackground;
   border-spacing: 0;
+  border: 1px solid $border;
 
   thead {
     font-size: 26px;

@@ -3,8 +3,8 @@ import { generatePath, useLocation, useNavigate, useParams } from 'react-router-
 import { ROUTES } from 'constants/routes';
 import { Menu, type MenuProps } from '@ui';
 
-import { Stages } from './components';
-import { useTournament } from './useTourmanent';
+import { Stages, TournamentMenu } from './components';
+import { useTournament } from './useTournament';
 
 const OPTIONS: MenuProps['options'] = [
   {
@@ -51,10 +51,13 @@ export const TournamentPage: FC = () => {
     return navigate(value);
   }
 
+  console.log('tournament', tournament);
+
   return (
     <>
       <Menu value={menuValue} options={OPTIONS} onOptionClick={onOptionClick} />
       {renderContent()}
+      <TournamentMenu tournament={tournament} setTournament={setTournament} />
     </>
   );
 };

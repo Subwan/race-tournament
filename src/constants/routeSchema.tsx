@@ -9,7 +9,6 @@ export const ROUTER = createBrowserRouter([
     element: <StartPage />,
   },
   {
-    path: ROUTES.TOURNAMENT,
     element: <TournamentPage />,
     children: [
       {

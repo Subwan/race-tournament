@@ -3,13 +3,11 @@ import type { Dayjs } from 'dayjs';
 import { type Stage, type Tournament } from '@types';
 import { Input, type TableProps, TimeInput } from '@ui';
 
-import type { StagesProps } from '../types';
+import { DeleteRacerButton } from './DeleteRacerButton';
 
-type Props = {
-  tournament: NonNullable<StagesProps['tournament']>;
-  stageId: string;
-  setTournament: NonNullable<StagesProps['setTournament']>;
-};
+import type { GetTableBodyProps } from './types';
+
+import styles from './styles.module.scss';
 
 const replaceNames = (tournament: Tournament, newName: string, racerId: string): Tournament =>
   Object.entries(tournament).reduce<Tournament>((acc, [currentStageId, currStage]) => ({
@@ -32,7 +30,7 @@ const replaceNames = (tournament: Tournament, newName: string, racerId: string):
     }, {})
   }), {});
 
-export const getTableBody = ({ tournament, stageId, setTournament }: Props): TableProps['body'] => {
+export const getTableBody = ({ tournament, stageId, setTournament }: GetTableBodyProps): TableProps['body'] => {
   const currentStage = tournament[stageId];
 
   const onNameChange = (e: ChangeEvent<HTMLInputElement>, id: string) => {
@@ -62,7 +60,11 @@ export const getTableBody = ({ tournament, stageId, setTournament }: Props): Tab
   return !!currentStage && Object.entries(currentStage)?.map(([id, racer]) => ({
     label: <Input value={racer.name ?? ''} onChange={(e) => onNameChange(e, id)} />,
     cells: [
-      <TimeInput key={id} value={racer.times[stageId]} onChange={time => onTimeChange(time, id)} />
+      { node: <TimeInput key={`${id} time`} value={racer.times[stageId]} onChange={time => onTimeChange(time, id)} /> },
+      {
+        node: <DeleteRacerButton tournament={tournament} racerId={id} setTournament={setTournament} />,
+        className: styles.buttonCell
+      },
     ]
   })) || [];
 };
