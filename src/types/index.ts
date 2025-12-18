@@ -2,7 +2,7 @@ import { Dayjs } from 'dayjs';
 
 export type Racer = {
   name: string;
-  times: Record<string, Dayjs>;
+  time: Dayjs | null;
 };
 
 export type Stage = Record<string, Racer>;

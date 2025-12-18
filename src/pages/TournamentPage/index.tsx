@@ -3,7 +3,7 @@ import { generatePath, useLocation, useNavigate, useParams } from 'react-router-
 import { ROUTES } from 'constants/routes';
 import { Menu, type MenuProps } from '@ui';
 
-import { Stages, TournamentMenu } from './components';
+import { Results, Stages, TournamentMenu } from './components';
 import { useTournament } from './useTournament';
 
 const OPTIONS: MenuProps['options'] = [
@@ -34,7 +34,7 @@ export const TournamentPage: FC = () => {
   const renderContent = () => {
     switch (location.pathname) {
       case ROUTES.RESULTS:
-        return <div />
+        return <Results tournament={tournament} />
       case ROUTES.STAGES:
       default:
         return <Stages tournament={tournament} addToTournament={addToTournament} setTournament={setTournament} />
@@ -49,7 +49,9 @@ export const TournamentPage: FC = () => {
     }
 
     return navigate(value);
-  }
+  };
+
+  console.log('tournament', tournament);
 
   return (
     <>

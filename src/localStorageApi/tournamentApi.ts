@@ -15,18 +15,14 @@ const isTournament = (value: unknown): value is Tournament =>
         racer =>
           isObject(racer)
           && 'name' in racer
-          && 'times' in racer
-          && isObject(racer.times)
+          && 'time' in racer
       )
   );
 
 const getRacer = (racer: Racer): Racer => (
   {
     name: racer.name,
-    times: Object.entries(racer.times).reduce<Racer['times']>((timeAcc, [timeStageId, time]) => ({
-      ...timeAcc,
-      [timeStageId]: dayjs(time)
-    }), {})
+    time: racer.time ? dayjs(racer.time) : null,
   }
 );
 

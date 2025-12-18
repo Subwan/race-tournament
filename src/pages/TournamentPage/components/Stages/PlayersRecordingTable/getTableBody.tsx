@@ -44,10 +44,7 @@ export const getTableBody = ({ tournament, stageId, setTournament }: GetTableBod
       ...currentStage,
       [id]: {
         ...currentStage[id],
-        times: {
-          ...currentStage[id].times,
-          [stageId]: newTime,
-        }
+        time: newTime
       },
     };
 
@@ -60,7 +57,7 @@ export const getTableBody = ({ tournament, stageId, setTournament }: GetTableBod
   return !!currentStage && Object.entries(currentStage)?.map(([id, racer]) => ({
     label: <Input value={racer.name ?? ''} onChange={(e) => onNameChange(e, id)} />,
     cells: [
-      { node: <TimeInput key={`${id} time`} value={racer.times[stageId]} onChange={time => onTimeChange(time, id)} /> },
+      { node: <TimeInput key={`${id} time`} value={racer.time} onChange={time => onTimeChange(time, id)} /> },
       {
         node: <DeleteRacerButton tournament={tournament} racerId={id} setTournament={setTournament} />,
         className: styles.buttonCell

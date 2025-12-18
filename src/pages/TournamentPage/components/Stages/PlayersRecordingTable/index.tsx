@@ -30,7 +30,7 @@ export const PlayersRecordingTable: FC<Props> = ({ tournament, setTournament }) 
         ...accTournament,
         [currStageId]: {
           ...stage,
-          [lastId + 1]: EMPTY_RACER
+          [Number(lastId) + 1]: EMPTY_RACER
         }
       };
     }, {});

@@ -10,7 +10,7 @@ import { Input } from '../Input';
 import styles from './styles.module.scss';
 
 export type TimeInputProps = {
-  value: Dayjs | undefined;
+  value: Dayjs | null;
   onChange: (newValue: Dayjs) => void;
   className?: string;
 };

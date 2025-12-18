@@ -7,7 +7,7 @@ const deleteTimes = (stage: Stage): Stage => {
     ...acc,
     [id]: {
       name: racer.name,
-      times: EMPTY_RACER.times
+      time: EMPTY_RACER.time
     }
   }), {})
 };
