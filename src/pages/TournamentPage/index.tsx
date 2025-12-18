@@ -51,8 +51,6 @@ export const TournamentPage: FC = () => {
     return navigate(value);
   }
 
-  console.log('tournament', tournament);
-
   return (
     <>
       <Menu value={menuValue} options={OPTIONS} onOptionClick={onOptionClick} />
