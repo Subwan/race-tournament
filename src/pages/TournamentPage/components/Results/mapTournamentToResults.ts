@@ -61,29 +61,28 @@ const getRacersWithSum = (racers: RacerWithTimes) => {
     (acc, racer) => {
       const sum = getTimeSum(racer.times);
 
-      const newRacer = {
-        ...racer,
-        sum,
-      };
-
       if (!fastestTime || sum.isBefore(fastestTime)) {
         fastestTime = sum;
-
-        return [
-          newRacer,
-          ...acc,
-        ];
       }
 
       return [
         ...acc,
-        newRacer,
+        {
+          ...racer,
+          sum,
+        },
       ];
     },
     []
   );
 
-  return getRacerWithDiff(resultWithTime, fastestTime);
+  const sortedResults = resultWithTime.toSorted((first, second) => {
+    const isBefore = first.sum.isAfter(second.sum)
+
+    return isBefore ? 1 : -1;
+  });
+
+  return getRacerWithDiff(sortedResults, fastestTime);
 };
 
 const getRacerWithTimes = (
